@@ -10,6 +10,9 @@ All of us have propably ever played a game of ships. This program finds sizes of
 
 1. Create a file named `ships.txt`
 2. Fill the file with a square of size 8x8 filled with `0` (water) and `1` (ship).
+
+>💡 **Tip:** If you are not sure how the file should look like, feel free to take a look at the example in `./samples/` directory.
+
 3. Compile the program
 ```bash
 g++ ships.cpp -o ships.out
