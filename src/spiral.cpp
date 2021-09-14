@@ -29,28 +29,17 @@ void print(int** board, int size) {
 
 void next_vector(int& x, int& y, bool cw = true) {
     if(cw) {
-        if(x == 1 && y == 0) {
-            x = 0; y = 1;
-        } else if(x == 0 && y == 1) {
-            x = -1; y = 0;
-        } else if(x == -1 && y == 0) {
-            x = 0; y = -1;
-        } else {
-            x = 1; y = 0;
-        }
-
+        if(x == 1 && y == 0) { x = 0; y = 1; }
+        else if(x == 0 && y == 1) { x = -1; y = 0; }
+        else if(x == -1 && y == 0) { x = 0; y = -1; }
+        else { x = 1; y = 0; }
         return;
     }
 
-    if(x == 0 && y == 1) {
-        x = 1; y = 0;
-    } else if(x == 1 && y == 0) {
-        x = 0; y = -1;
-    } else if(x == 0 && y == -1) {
-        x = -1; y = 0;
-    } else {
-        x = 0; y = 1;
-    }
+    if(x == 0 && y == 1) { x = 1; y = 0; }
+    else if(x == 1 && y == 0) { x = 0; y = -1; }
+    else if(x == 0 && y == -1) { x = -1; y = 0; }
+    else { x = 0; y = 1; }
 }
 
 int main() {
@@ -75,10 +64,8 @@ int main() {
         int new_y = y + dy;
 
         if(
-            new_x < 0 ||
-            new_x >= size ||
-            new_y < 0 ||
-            new_y >= size ||
+            new_x < 0 || new_x >= size ||
+            new_y < 0 || new_y >= size ||
             board[new_y][new_x] != 0
         ) {
             next_vector(dx, dy, cw);

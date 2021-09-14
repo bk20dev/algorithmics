@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <map>
 
 size_t solve(bool** board, int x, int y) {
     board[y][x] = false;
@@ -26,14 +25,8 @@ size_t solve(bool** board, int x, int y) {
     return parts;
 }
 
-int main()
-{
-    bool** board = new bool*[8];
-    for(size_t i = 0; i < 8; i++) {
-        board[i] = new bool[8];
-    }
-
-    std::ifstream in("ships.txt");
+void read_board(bool** board, std::string path) {
+    std::ifstream in(path);
     
     std::string line;
     for(size_t i = 0; i < 8; i++) {
@@ -42,14 +35,24 @@ int main()
             board[i][j] = line[j] - '0';
         }
     }
+
     in.close();
+}
+
+int main()
+{
+    bool** board = new bool*[8];
+    for(size_t i = 0; i < 8; i++) {
+        board[i] = new bool[8];
+    }
+
+    read_board(board, "ships.txt");
 
     for(size_t i = 0; i < 8; i++) {
         for(size_t j = 0; j < 8; j++) {
             if(!board[i][j]) continue;
 
             size_t size = solve(board, j, i);
-
             std::cout << "Found " << size << std::endl;
         }
     }
