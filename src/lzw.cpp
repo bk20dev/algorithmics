@@ -82,7 +82,7 @@ int main() {
     Dictionary* dictionary = new Dictionary(alphabet);
     std::string encoded = encode(input, dictionary);
 
-    std::ofstream file_out("output.txt");
+    std::ofstream file_out("compressed.txt");
     file_out << encoded;
 
     file_out.close();
